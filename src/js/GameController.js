@@ -28,6 +28,17 @@ export default class GameController {
     this.gamePlay.drawUi(themes[this.gameState.level]);//отрисовка поля
     // TODO: add event listeners to gamePlay events
     // TODO: load saved stated from stateService
+    this.userTeam.addHeroes(generateTeam(this.userHeroes, 1, 2));
+    this.aiTeam.addHeroes(generateTeam(this.aiHeroes, 1, 2));
+
+    this.positionTeam(this.userTeam, this.positionUser());
+    this.positionTeam(this.aiTeam, this.positionAi());
+
+    this.gamePlay.addCellClickListener(this.onCellClick.bind(this));
+    this.gamePlay.addCellEnterListener(this.onCellEnter.bind(this));
+    this.gamePlay.addCellLeaveListener(this.onCellLeave.bind(this));
+
+    this.gamePlay.redrawPositions(this.gameState.allCell);
   }
 
   onCellClick(index) {
