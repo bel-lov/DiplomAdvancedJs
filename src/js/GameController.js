@@ -25,7 +25,7 @@ export default class GameController {
   }
 
   init() {
-    this.gamePlay.drawUi(themes[this.gameState.level]);//отрисовка поля
+    this.gamePlay.drawUi(themes.prairie);//отрисовка поля
     // TODO: add event listeners to gamePlay events
     // TODO: load saved stated from stateService
     this.userTeam.addHeroes(generateTeam(this.userHeroes, 1, 2));

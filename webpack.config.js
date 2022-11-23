@@ -39,15 +39,19 @@
 //     }),
 //   ],
 // };
+// 
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'assets/images/[name][ext]'
   },
   module: {
+
     rules: [
       {
         test: /\.js$/,
@@ -70,14 +74,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-            },
-          },
-        ],
+        type: 'asset/resource',
       },
     ],
   },
