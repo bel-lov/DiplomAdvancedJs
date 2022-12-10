@@ -8,6 +8,6 @@ export default class Undead extends Character {
         this.distance = 4;
         this.attackRange = 1;
         this.type = 'undead';
-        this.class = 'Нежить';
+        this.class = 'Восставший из мёртвых';
     }
 }
